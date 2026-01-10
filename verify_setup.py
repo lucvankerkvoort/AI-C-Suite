@@ -16,7 +16,6 @@ def verify_setup():
     packages = [
         "phi",
         "streamlit",
-        "zep_python",
         "google.generativeai",
         "dotenv",
         "pydantic"
@@ -35,6 +34,9 @@ def verify_setup():
         print("2. Run 'streamlit run app.py' to start the application.")
     else:
         print("⚠️ Some dependencies are missing. Please run 'pip install -r requirements.txt'")
+
+if __name__ == "__main__":
+    verify_setup()
 
 if __name__ == "__main__":
     verify_setup()
