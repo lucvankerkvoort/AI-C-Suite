@@ -1,0 +1,6 @@
+phidata
+streamlit
+zep-python
+google-generativeai
+python-dotenv
+pydantic
