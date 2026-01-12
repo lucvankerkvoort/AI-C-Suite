@@ -1,6 +1,7 @@
 import streamlit as st
 import uuid
 from agents.ceo import get_ceo_agent
+from agents.cto import get_cto_agent
 from utils.config import Config
 
 st.set_page_config(page_title="AI C-Suite", page_icon="👔")
@@ -40,9 +41,14 @@ if prompt := st.chat_input("Ask the C-Suite..."):
         st.markdown(prompt)
 
     # Agent Response
+    agent = None
     if selected_agent == "CEO":
+        agent = get_ceo_agent(session_id=st.session_state.session_id)
+    elif selected_agent == "CTO":
+        agent = get_cto_agent(session_id=st.session_state.session_id)
+    
+    if agent:
         try:
-            agent = get_ceo_agent(session_id=st.session_state.session_id)
             with st.chat_message("assistant"):
                 response_placeholder = st.empty()
                 response = agent.run(prompt)
@@ -53,3 +59,4 @@ if prompt := st.chat_input("Ask the C-Suite..."):
             st.error(f"Error communicating with agent: {e}")
     else:
         st.info(f"{selected_agent} agent is not yet implemented.")
+
