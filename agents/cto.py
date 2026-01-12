@@ -21,7 +21,7 @@ def get_cto_agent(session_id: str = None):
     return Agent(
         name="CTO",
         role="Chief Technology Officer",
-        model=Gemini(id="gemini-1.5-pro", api_key=Config.GOOGLE_API_KEY),
+        model=Gemini(id="gemini-2.5-pro", api_key=Config.GOOGLE_API_KEY),
         storage=get_agent_storage("cto_sessions"),
         session_id=session_id,
         tools=[
