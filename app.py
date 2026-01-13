@@ -19,7 +19,7 @@ COLORS = {
 # Page configuration
 st.set_page_config(
     page_title="Nexus | AI C-Suite",
-    page_icon="◆",
+    page_icon="🔹",
     layout="wide"
 )
 
@@ -214,17 +214,17 @@ st.markdown(f"""
 # Agent definitions
 AGENTS = {
     "CEO": {
-        "icon": "◆",
+        "icon": "🔹",
         "title": "Chief Executive Officer",
         "description": "Strategic direction & high-level decisions"
     },
     "CTO": {
-        "icon": "◆",
+        "icon": "🔹",
         "title": "Chief Technology Officer", 
         "description": "Technical architecture & code scaffolding"
     },
     "CMO": {
-        "icon": "◆",
+        "icon": "🔹",
         "title": "Chief Marketing Officer",
         "description": "Marketing strategy & growth"
     }
@@ -236,7 +236,7 @@ if "session_id" not in st.session_state:
 
 # Sidebar
 with st.sidebar:
-    st.markdown("## ◆ NEXUS")
+    st.markdown("## 🔹 NEXUS")
     st.caption("Executive AI Suite")
     
     st.divider()
@@ -308,7 +308,7 @@ if not st.session_state.messages:
 
 # Display chat history
 for message in st.session_state.messages:
-    avatar = "◆" if message["role"] == "assistant" else None
+    avatar = "🔹" if message["role"] == "assistant" else None
     with st.chat_message(message["role"], avatar=avatar):
         st.markdown(message["content"])
 
@@ -326,7 +326,7 @@ if prompt := st.chat_input(f"Message {selected_agent}..."):
         agent = get_cto_agent(session_id=st.session_state.session_id)
     
     if agent:
-        with st.chat_message("assistant", avatar="◆"):
+        with st.chat_message("assistant", avatar="🔹"):
             with st.spinner(""):
                 try:
                     response = agent.run(prompt)
